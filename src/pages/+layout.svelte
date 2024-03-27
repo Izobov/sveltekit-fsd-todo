@@ -16,18 +16,21 @@
         height: 100vh;
         display: flex;
         flex-direction: column;
+        
 
         &-content {
             display: flex;
-            padding: 20px;
             flex-grow: 1;
             justify-content: center;
+            overflow: hidden;
         }
-
-        :global(&-page) {
+        
+        &-page {
+            padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 20px;
+            width: 100%;
         }
     }
 </style>

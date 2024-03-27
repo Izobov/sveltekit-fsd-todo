@@ -3,7 +3,7 @@
 	import { store } from '$shared/store/model/store';
 	$: isLogged = $store.userName && $store.userId;
     function logout() {
-        store.set({userName: null, userId: null, todos: []});
+        store.set({userName: null, userId: null, todo: []});
         goto('/auth');
     }
 </script>
@@ -22,12 +22,8 @@
             </div>
 		{:else}
 			<a href="/auth">Sign In</a>
-			<!-- else content here -->
 		{/if}
 	</div>
-	{#if isLogged}
-		<!-- content here -->
-	{/if}
 </div>
 
 <style lang="scss">

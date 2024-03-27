@@ -19,6 +19,7 @@ const config = {
 		alias: {
 			$shared: 'src/shared',
 			$widgets: 'src/widgets',
+			$entries: 'src/entries',
 		},
 	}
 };
