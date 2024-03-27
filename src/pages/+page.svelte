@@ -1,5 +1,5 @@
 <script>
-	import { getLocale } from "$shared/localization";
+	import { getLocale } from "$shared/localization/model";
 	import TodoList from "$widgets/todo/ui/TodoList.svelte";
     const locale = getLocale();
 	

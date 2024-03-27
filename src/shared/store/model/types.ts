@@ -1,6 +1,6 @@
 export interface IState {
-	userId: number | null;
-	userName: string | null;
+	userId?: number;
+	userName?: string;
 	todo: IToDo[];
 }
 export interface IToDo {

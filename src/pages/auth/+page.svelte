@@ -3,7 +3,7 @@
 	import { derived } from 'svelte/store';
 	import { name, surname } from './model';
 	import { goto } from '$app/navigation';
-	import { getLocale } from '$shared/localization';
+	import { getLocale } from '$shared/localization/model';
 	import Button from '$shared/ui/Button/Button.svelte';
 
 	let fullName = derived([name, surname], ([$name, $surname]) => {

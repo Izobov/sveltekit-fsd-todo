@@ -1,5 +1,5 @@
 <script>
-	import { getLocale } from "$shared/localization";
+	import { getLocale } from "$shared/localization/model";
     const locale = getLocale();
 	
 </script>

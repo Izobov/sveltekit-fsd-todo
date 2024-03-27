@@ -4,10 +4,13 @@
 
     export let todo: IToDo;
     $: ({title, completed} = todo);
+    function handleChange(e: any) {
+        updateTodo({...todo, completed: !!(e.target as HTMLInputElement)?.checked});
+    }
 </script>
 
 <div class="todo-item" class:todo-item-completed={completed}>
-    <input type="checkbox"  checked={completed} on:change={(e) => updateTodo({...todo, completed: !!e.target?.checked})}>
+    <input type="checkbox"  checked={completed} on:change={(e) => handleChange(e)}>
     <div class="todo-item-title">
         {title}
     </div>

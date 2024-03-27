@@ -1,5 +1,5 @@
 <script>
-	import { setLocale } from "$shared/localization";
+	import { setLocale } from "$shared/localization/model";
 	import Header from "$widgets/header/Header.svelte";
 	import { getContext } from "svelte";
     import "$shared/themes/index.scss"

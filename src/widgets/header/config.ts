@@ -1,4 +1,4 @@
-import { locales } from "$shared/localization";
+import { locales } from "$shared/localization/model";
 import { themes } from "$shared/themes/model";
 
 export const localeOptions = locales.map((l) => ({

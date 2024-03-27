@@ -2,13 +2,13 @@
 	import { localeOptions } from './config';
 	import { goto } from '$app/navigation';
 	import { store } from '$shared/store/model/store';
-	import { getLocale, setLocale } from '$shared/localization';
+	import { getLocale, setLocale } from '$shared/localization/model';
 	import Button from '$shared/ui/Button/Button.svelte';
 	import { setTheme, themes } from '$shared/themes/model';
 	import { getContext } from 'svelte';
 	$: isLogged = $store.userName && $store.userId;
 	function logout() {
-		store.set({ userName: null, userId: null, todo: [] });
+		store.set({ todo: [] });
 		goto('/auth');
 	}
 	const locale = getLocale();
@@ -79,8 +79,7 @@
 			font-weight: bold;
 		}
 
-		a,
-		.header-navigation-button {
+		a {
 			color: var(--text-color-light);
 			text-decoration: none;
 			cursor: pointer;
