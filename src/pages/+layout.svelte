@@ -1,6 +1,7 @@
 <script>
-	import Header from "$widgets/header/ui/Header.svelte";
-
+	import { setLocale } from "$shared/localization";
+	import Header from "$widgets/header/Header.svelte";
+    setLocale('en')
 </script>
 <div class="app-wrapper">
 

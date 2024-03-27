@@ -1,27 +1,37 @@
 <script>
+	import { localeOptions } from './config';
 	import { goto } from '$app/navigation';
 	import { store } from '$shared/store/model/store';
+	import { getLocale, setLocale } from '$shared/localization/model';
 	$: isLogged = $store.userName && $store.userId;
-    function logout() {
-        store.set({userName: null, userId: null, todo: []});
-        goto('/auth');
-    }
+	function logout() {
+		store.set({ userName: null, userId: null, todo: [] });
+		goto('/auth');
+	}
+	const locale = getLocale();
+	let selectedLocale = $locale.$id;
+	$: setLocale(selectedLocale);
 </script>
 
 <div class="header">
 	<div class="header-block header-navigation">
-		<a href="/">Home</a>
-		<a href="/about">About</a>
-		<a href="/">Todo</a>
+		<a href="/">{$locale.Home}</a>
+		<a href="/about">{$locale.About}</a>
+		<a href="/">{$locale.Todo}</a>
 	</div>
 	<div class="header-block header-actions">
+		<select bind:value={selectedLocale}>
+			{#each localeOptions as item}
+				<option value={item.value}>{item.label} </option>
+			{/each}
+		</select>
 		{#if isLogged}
-			<div class="header-navigation-button" on:click={logout}>Logout</div>
-            <div class="header-user">
-                {$store.userName}
-            </div>
+			<div class="header-navigation-button" on:click={logout}>{$locale.Logout}</div>
+			<div class="header-user">
+				{$store.userName}
+			</div>
 		{:else}
-			<a href="/auth">Sign In</a>
+			<a href="/auth">{$locale.Login}</a>
 		{/if}
 	</div>
 </div>
@@ -34,7 +44,7 @@
 		background-color: rgb(101, 101, 255);
 		padding: 5px 20px;
 		justify-content: space-between;
-        gap: 20px;
+		gap: 20px;
 
 		.header-block {
 			display: flex;
@@ -51,9 +61,9 @@
 		.header-user {
 			justify-content: flex-end;
 		}
-        
+
 		.header-user {
-            font-size: 20px;
+			font-size: 20px;
 			font-weight: bold;
 		}
 
@@ -61,7 +71,7 @@
 		.header-navigation-button {
 			color: white;
 			text-decoration: none;
-            cursor: pointer;
+			cursor: pointer;
 
 			&:hover {
 				color: rgb(201, 201, 69);
