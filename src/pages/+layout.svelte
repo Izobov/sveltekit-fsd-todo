@@ -2,16 +2,16 @@
 	import Header from "$widgets/header/ui/Header.svelte";
 
 </script>
-<div class="main-wrapper">
+<div class="app-wrapper">
 
     <Header />
-    <div class="main-wrapper-content">
+    <div class="app-wrapper-content">
         <slot></slot>
     </div>
 </div>
 
 <style lang="scss">
-    .main-wrapper {
+    .app-wrapper {
         width: 100vw;
         height: 100vh;
         display: flex;
@@ -22,6 +22,12 @@
             padding: 20px;
             flex-grow: 1;
             justify-content: center;
+        }
+
+        :global(&-page) {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
     }
 </style>
