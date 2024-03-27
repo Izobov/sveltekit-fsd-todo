@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { store } from '$shared/store/model/store';
 	import { getLocale, setLocale } from '$shared/localization/model';
+	import Button from '$shared/ui/Button.svelte';
 	$: isLogged = $store.userName && $store.userId;
 	function logout() {
 		store.set({ userName: null, userId: null, todo: [] });
@@ -26,12 +27,12 @@
 			{/each}
 		</select>
 		{#if isLogged}
-			<div class="header-navigation-button" on:click={logout}>{$locale.Logout}</div>
+			<Button on:click={logout}>{$locale.Logout}</Button>
 			<div class="header-user">
 				{$store.userName}
 			</div>
 		{:else}
-			<a href="/auth">{$locale.Login}</a>
+			<Button on:click={() => goto("/auth")}>{$locale.Login}</Button>
 		{/if}
 	</div>
 </div>
@@ -41,7 +42,7 @@
 		width: 100%;
 		height: 60px;
 		display: flex;
-		background-color: rgb(101, 101, 255);
+		background-color: rgb(140, 140, 199);
 		padding: 5px 20px;
 		justify-content: space-between;
 		gap: 20px;

@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { store } from '$shared/store/model/store';
 	import { derived } from 'svelte/store';
-	import { name, surname } from './model/stores';
+	import { name, surname } from './model';
 	import { goto } from '$app/navigation';
 	import { getLocale } from '$shared/localization';
+	import Button from '$shared/ui/Button.svelte';
 
 	let fullName = derived([name, surname], ([$name, $surname]) => {
 		return `${$name} ${$surname}`;
@@ -28,7 +29,7 @@
             <label for="surname">{$locale.Surname}</label>
             <input type="text" name="surname" bind:value={$surname} />
         </div>
-		<button on:click={login}>{$locale.Login}</button>
+        <Button on:click={login}>{$locale.Login}</Button>
 	</div>
 </div>
 
