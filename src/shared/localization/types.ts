@@ -7,5 +7,7 @@ export interface ILocalization {
     "Todo": string;
     "Name": string;
     "Surname": string;
+    "Dark": string;
+    "Light": string;
     [key: string]: string;
 }

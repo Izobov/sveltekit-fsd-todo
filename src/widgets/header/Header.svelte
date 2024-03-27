@@ -2,16 +2,22 @@
 	import { localeOptions } from './config';
 	import { goto } from '$app/navigation';
 	import { store } from '$shared/store/model/store';
-	import { getLocale, setLocale } from '$shared/localization/model';
-	import Button from '$shared/ui/Button.svelte';
+	import { getLocale, setLocale } from '$shared/localization';
+	import Button from '$shared/ui/Button/Button.svelte';
+	import { setTheme, themes } from '$shared/themes/model';
+	import { getContext } from 'svelte';
 	$: isLogged = $store.userName && $store.userId;
 	function logout() {
 		store.set({ userName: null, userId: null, todo: [] });
 		goto('/auth');
 	}
 	const locale = getLocale();
+	let theme = getContext('theme');
+	let currentTheme = $theme;
 	let selectedLocale = $locale.$id;
+	$: themeOptions = themes.map(({id, name}) => ({ value: id, label: name }));
 	$: setLocale(selectedLocale);
+	$: setTheme(currentTheme);
 </script>
 
 <div class="header">
@@ -21,6 +27,11 @@
 		<a href="/">{$locale.Todo}</a>
 	</div>
 	<div class="header-block header-actions">
+		<select bind:value={currentTheme}>
+			{#each themeOptions as item}
+				<option value={item.value}>{$locale[item.label]} </option>
+			{/each}
+		</select>
 		<select bind:value={selectedLocale}>
 			{#each localeOptions as item}
 				<option value={item.value}>{item.label} </option>
@@ -42,7 +53,7 @@
 		width: 100%;
 		height: 60px;
 		display: flex;
-		background-color: rgb(140, 140, 199);
+		background-color: var(--secondary-bg-color);
 		padding: 5px 20px;
 		justify-content: space-between;
 		gap: 20px;
@@ -70,12 +81,12 @@
 
 		a,
 		.header-navigation-button {
-			color: white;
+			color: var(--text-color-light);
 			text-decoration: none;
 			cursor: pointer;
 
 			&:hover {
-				color: rgb(201, 201, 69);
+				color: var(--secondary-color);
 			}
 		}
 	}

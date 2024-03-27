@@ -8,5 +8,7 @@ export const ru: ILocalization = {
     "Logout": "Выйти",
     "Todo": "Список дел",
     "Name": "Имя",
-    "Surname": "Фамилия"
+    "Surname": "Фамилия",
+    "Dark": "Темная тема",
+    "Light": "Светлая тема",
 }

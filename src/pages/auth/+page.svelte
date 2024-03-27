@@ -4,7 +4,7 @@
 	import { name, surname } from './model';
 	import { goto } from '$app/navigation';
 	import { getLocale } from '$shared/localization';
-	import Button from '$shared/ui/Button.svelte';
+	import Button from '$shared/ui/Button/Button.svelte';
 
 	let fullName = derived([name, surname], ([$name, $surname]) => {
 		return `${$name} ${$surname}`;

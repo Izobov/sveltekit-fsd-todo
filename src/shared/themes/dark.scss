@@ -1,0 +1,15 @@
+.theme-dark {
+    --bg-color: #363535;
+    --text-color: #f5f5f5; 
+    --primary-color: #73b7ff;
+    --primary-color-hover: #6992bd;
+    --secondary-color: #a9cb61;
+    --secondary-bg-color: #3e8bd4;
+
+    .ui-button {
+        border-radius: 20px;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        box-shadow: 2px 2px 2px 0 var(--text-color);
+    }
+}

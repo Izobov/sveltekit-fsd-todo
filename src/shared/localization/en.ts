@@ -9,4 +9,6 @@ export const en: ILocalization = {
     "Todo": "Todo",
     "Name": "Name",
     "Surname": "Surname",
+    "Dark": "Dark",
+    "Light": "Light",
 }
